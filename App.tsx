@@ -1,11 +1,11 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import LoginPage from './src/screen/Auth/Login/index';
+import Registration from './src/screen/Auth/Registration/index';
 
 function App(): React.JSX.Element {
   return (
     <SafeAreaView style={{flex: 1}}>
-      <LoginPage />
+      <Registration />
     </SafeAreaView>
   );
 }
