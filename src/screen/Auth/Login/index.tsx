@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import styles from './styles';
-import {HidePassIcon, ViewPassIcon} from '../../../asstes/icons/index';
+import {HidePassIcon, ViewPassIcon} from '../../../assets/icons/index';
 
 interface IInputValue {
   email: string;
@@ -68,8 +68,8 @@ export default function LoginPage() {
           <View style={[styles.titleContainer]}>
             <Text style={styles.title}>Раді тебе вітати!</Text>
             <Text style={styles.welcomeText}>
-              Кожен пухнастик заслуговує на дбайливих господарів.Ми допоможемо
-              тобі знайти друга.
+              Кожен пухнастик заслуговує на дбайливих господарів.{'\n'}Ми
+              допоможемо тобі знайти друга.
             </Text>
           </View>
           <View style={styles.buttonContainer}>

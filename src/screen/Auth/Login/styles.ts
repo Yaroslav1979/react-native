@@ -1,4 +1,5 @@
 import {Platform, StyleSheet} from 'react-native';
+import {fonts} from '../../../constants/fonts';
 
 export default StyleSheet.create({
   mainWrapper: {
@@ -9,10 +10,12 @@ export default StyleSheet.create({
   title: {
     fontSize: 24,
     color: 'black',
+    fontFamily: fonts.ComfortaaRegular,
   },
   welcomeText: {
     fontSize: 14,
     color: 'black',
+    fontFamily: fonts.MontserratRegular,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -32,6 +35,7 @@ export default StyleSheet.create({
   authText: {
     color: '#0B0B0B',
     fontSize: 14,
+    fontFamily: fonts.MontserratRegular,
   },
   registrationBtn: {
     alignItems: 'center',
@@ -72,6 +76,7 @@ export default StyleSheet.create({
   input: {
     padding: 0,
     flex: 1,
+    fontFamily: fonts.MontserratRegular,
   },
   loginBtnContainer: {
     borderRadius: 25,
