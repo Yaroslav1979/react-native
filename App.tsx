@@ -1,11 +1,11 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import Registration from './src/screen/Auth/Registration/index';
+import RootNavigation from './src/navigation/index';
 
 function App(): React.JSX.Element {
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Registration />
+      <RootNavigation />
     </SafeAreaView>
   );
 }
