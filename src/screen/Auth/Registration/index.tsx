@@ -60,6 +60,7 @@ export default function Registration() {
                 onChangeText={value => {
                   setFieldValue('password', value);
                 }}
+                secureTextEntry={true}
                 placeholder={'Password'}
                 error={touched.password && errors.password}
               />
@@ -74,6 +75,7 @@ export default function Registration() {
                 onChangeText={value => {
                   setFieldValue('confirmPassword', value);
                 }}
+                secureTextEntry={true}
                 placeholder={'Confirm password'}
                 error={touched.confirmPassword && errors.confirmPassword}
               />

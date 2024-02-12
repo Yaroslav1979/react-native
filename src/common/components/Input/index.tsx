@@ -48,7 +48,7 @@ export default function Input({
               setIsPassHidden(!isPassHidden);
             }}
             hitSlop={{top: 15, bottom: 15, right: 15, left: 15}}>
-            {isPassHidden ? (
+            {!isPassHidden ? (
               <ViewPassIcon fill={'#000000'} />
             ) : (
               <HidePassIcon fill={'#a36161'} />

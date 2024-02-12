@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import RootNavigation from './src/navigation/index';
+import RootNavigation from './src/navigation';
 
 function App(): React.JSX.Element {
   return (

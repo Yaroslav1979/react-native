@@ -1,17 +1,17 @@
 import {Text, TouchableOpacity, View} from 'react-native';
 import styles from '../../styles';
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/core';
 import {ScreenNames} from '../../../../constants/screenNames';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootStack} from '../../../../navigation/index';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackNavigation} from '../../../../navigation/types';
 
 interface IAuthHeader {
   activeTab: 'login' | 'registration';
 }
 
 export default function AuthHeader({activeTab}: IAuthHeader) {
-  const navigation = useNavigation<NativeStackNavigationProp<RootStack>>();
+  const navigation = useNavigation<StackNavigationProp<RootStackNavigation>>();
   const navigateToLogin = () => {
     navigation.navigate(ScreenNames.LOGIN_PAGE);
   };
