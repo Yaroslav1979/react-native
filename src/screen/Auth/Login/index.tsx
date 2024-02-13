@@ -5,6 +5,7 @@ import AuthHeader from '../components/AuthHeader/index';
 import Input from '../../../common/components/Input/index';
 import DefaultButton from '../../../common/components/DefaultButton/index';
 import AuthLayout from '../components/AuthLayout/index';
+import auth from '@react-native-firebase/auth';
 
 interface IInputValue {
   email: string;
@@ -46,6 +47,14 @@ export default function LoginPage() {
       handleChangeInput('errorPassword', null);
     }
   };
+  const onLogin = async (email, password) => {
+    try {
+      const result = await auth().signInWithEmailAndPassword(email, password);
+      console.log('RESULT', result);
+    } catch (e) {
+      console.log('e', e);
+    }
+  };
   const isDisabledLoginBtn = Boolean(
     inputValues.errorEmail ||
       inputValues.errorPassword ||
@@ -74,7 +83,9 @@ export default function LoginPage() {
         />
       </View>
       <DefaultButton
-        onPress={() => {}}
+        onPress={() => {
+          void onLogin(inputValues.email, inputValues.password);
+        }}
         disabled={isDisabledLoginBtn}
         text={'Увійти'}
       />
