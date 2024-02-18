@@ -1,5 +1,5 @@
 import {Text, View} from 'react-native';
-import {HeartIcon, Label, PawIcon} from '../../assets/icons';
+import {HeartIcon, PawIcon} from '../../assets/icons';
 import {ScreenNames} from '../../constants/screenNames';
 import {fonts} from '../../constants/fonts';
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
@@ -30,18 +30,7 @@ export default function getTabOptions(route): BottomTabNavigationOptions {
       borderTopLeftRadius: 50,
     },
     tabBarShowLabel: false,
-    header: () => {
-      return (
-        <View
-          style={{
-            width: '100%',
-            height: 60,
-            padding: 10,
-          }}>
-          <Label />
-        </View>
-      );
-    },
+    headerShown: false,
     tabBarIcon: ({focused}) => {
       return (
         <View style={{alignItems: 'center', gap: 5}}>
