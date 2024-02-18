@@ -5,6 +5,7 @@ import HeartIcon from './HeartIcon';
 import Label from './Label';
 import CloseIcon from './CloseIcon';
 import ArrowIcon from './ArrowIcon';
+import FavoriteIcon from './FavoriteIcon';
 
 export {
   ViewPassIcon,
@@ -14,4 +15,5 @@ export {
   Label,
   CloseIcon,
   ArrowIcon,
+  FavoriteIcon,
 };
