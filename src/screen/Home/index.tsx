@@ -1,8 +1,12 @@
-import {View} from 'react-native';
-import firestore from '@react-native-firebase/firestore';
+import {ActivityIndicator, View} from 'react-native';
+import firestore, {
+  FirebaseFirestoreTypes,
+} from '@react-native-firebase/firestore';
 import {useEffect, useState} from 'react';
 import PetsList from './components/PetsList';
 import SearchBar from './components/SearchBar';
+import {ISettings} from '../FilterSettings';
+import {RouteProp, useRoute} from '@react-navigation/core';
 
 export interface IPets {
   age: number;
@@ -20,10 +24,19 @@ export interface IPets {
 }
 export default function Home() {
   const [pets, setPets] = useState<IPets[]>([]);
-
-  const getPets = async () => {
+  const route = useRoute<RouteProp<{params: {settings: ISettings}}>>();
+  const handleSearchWithSettings = async (settings: ISettings) => {
     try {
-      const result = await firestore().collection('animals').get();
+      let query: FirebaseFirestoreTypes.Query<FirebaseFirestoreTypes.DocumentData> =
+        firestore().collection('animals');
+      Object.entries(settings).forEach(([key, value]) => {
+        if (key !== 'timeStamp' && value !== null) {
+          query = query.where(key, '==', key === 'age' ? +value : value);
+        }
+      });
+      query = query.orderBy('timeStamp', settings.timeStamp ? 'desc' : 'asc');
+
+      const result = await query.get();
       const temp: IPets[] = result.docs.map(e => e.data()) as IPets[];
       setPets(temp);
     } catch (e) {
@@ -45,13 +58,13 @@ export default function Home() {
     }
   };
   useEffect(() => {
-    getPets();
-  }, []);
-  console.log('pets', pets);
+    handleSearchWithSettings(route?.params?.settings);
+  }, [route]);
+
   return (
     <View style={{flex: 1}}>
       <SearchBar handleSearch={handleSearch} pets={pets} />
-      <PetsList pets={pets} />
+      {pets.length ? <PetsList pets={pets} /> : <ActivityIndicator />}
     </View>
   );
 }

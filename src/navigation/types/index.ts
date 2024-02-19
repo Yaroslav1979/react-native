@@ -1,4 +1,5 @@
 import {IPets} from '../../screen/Home';
+import {ISettings} from '../../screen/FilterSettings';
 
 export type LoggedOutStackType = {
   LOGIN_PAGE: undefined;
@@ -15,14 +16,7 @@ export type LoggedInStackType = {
 };
 export type TabBarStackType = {
   HOME_PAGE: {
-    settings: {
-      sortByTime: boolean;
-      selectedAnimal: boolean;
-      selectedSex: 'male' | 'female';
-      size: 'big' | 'small' | 'medium';
-      age: string;
-      isVaccinate: boolean;
-    };
+    settings: ISettings;
   };
   FAVORITE_PAGE: undefined;
 };

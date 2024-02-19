@@ -13,10 +13,14 @@ interface IItems {
 export default function SwitchBtn({items, active, handleSwitch}: IItems) {
   return (
     <View style={styles.switcherWrapper}>
-      {items.map(e => (
+      {items.map((e, index) => (
         <TouchableOpacity
           onPress={() => handleSwitch(e)}
-          style={active === e.id ? styles.activeBtn : styles.nonActiveBtn}>
+          style={
+            active === e.id || (active === null && index === 0)
+              ? styles.activeBtn
+              : styles.nonActiveBtn
+          }>
           {!!e.icon && <View style={styles.iconContainer}>{e.icon}</View>}
           <View style={[styles.textContainer, !!e.icon && {flex: 0.8}]}>
             <Text style={styles.btnText}>{e.text}</Text>

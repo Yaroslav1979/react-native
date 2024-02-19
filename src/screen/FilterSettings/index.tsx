@@ -19,33 +19,33 @@ import {TabBarStackType} from '../../navigation/types';
 import {ScreenNames} from '../../constants/screenNames';
 
 export interface ISettings {
-  sortByTime: boolean;
-  selectedAnimal: boolean;
-  selectedSex: 'male' | 'female';
+  timeStamp: boolean;
+  isDog: boolean;
+  sex: 'male' | 'female';
   size: 'big' | 'small' | 'medium';
   age: string;
-  isVaccinate: boolean;
+  isVaccinated: boolean;
 }
 export default function FilterSettings() {
   const navigation = useNavigation<StackNavigationProp<TabBarStackType>>();
   const [settings, setSettings] = useState<ISettings>({
-    sortByTime: false,
-    selectedAnimal: true,
-    selectedSex: 'male',
-    size: 'small',
-    age: '1',
-    isVaccinate: false,
+    timeStamp: false,
+    isDog: true,
+    sex: null,
+    size: null,
+    age: null,
+    isVaccinated: false,
   });
   const handleSwitchAnimal = (animal: {id: boolean}) => {
     setSettings(prevState => ({
       ...prevState,
-      selectedAnimal: animal.id,
+      isDog: animal.id,
     }));
   };
   const handleSwitchSex = (animal: {id: 'male' | 'female'}) => {
     setSettings(prevState => ({
       ...prevState,
-      selectedSex: animal.id,
+      sex: animal.id,
     }));
   };
   const handleSwitchSize = (animal: {id: 'small' | 'big' | 'medium'}) => {
@@ -57,7 +57,7 @@ export default function FilterSettings() {
   const onSortByTime = () => {
     setSettings(prevState => ({
       ...prevState,
-      sortByTime: !prevState.sortByTime,
+      timeStamp: !prevState.timeStamp,
     }));
   };
 
@@ -70,7 +70,7 @@ export default function FilterSettings() {
           }}
           style={styles.sortByTimeBtn}>
           <View style={styles.activeSortByTime}>
-            {settings.sortByTime && <View style={styles.checkedSortByTime} />}
+            {settings.timeStamp && <View style={styles.checkedSortByTime} />}
           </View>
           <Text style={styles.sortByTimeText}>
             Сортувати за датою додавання
@@ -78,7 +78,7 @@ export default function FilterSettings() {
         </TouchableOpacity>
         <SwitchBtn
           handleSwitch={handleSwitchAnimal}
-          active={settings.selectedAnimal}
+          active={settings.isDog}
           items={[
             {text: 'Собаки', id: true},
             {text: 'Коти', id: false},
@@ -86,7 +86,7 @@ export default function FilterSettings() {
         />
         <SwitchBtn
           handleSwitch={handleSwitchSex}
-          active={settings.selectedSex}
+          active={settings.sex}
           items={[
             {text: 'Хлопець', icon: <MailIcon />, id: 'male'},
             {text: 'Дівчина', icon: <FemailIcon />, id: 'female'},
@@ -111,7 +111,7 @@ export default function FilterSettings() {
             <TextInput
               placeholder={'1'}
               keyboardType={'numeric'}
-              value={settings.age.toString()}
+              value={settings.age}
               onChangeText={text =>
                 setSettings(prevState => ({
                   ...prevState,
@@ -127,7 +127,7 @@ export default function FilterSettings() {
           <TouchableOpacity
             style={[
               styles.switcherBtn,
-              settings.isVaccinate && {
+              settings.isVaccinated && {
                 alignItems: 'flex-end',
                 backgroundColor: '#D0CBF1',
               },
@@ -135,7 +135,7 @@ export default function FilterSettings() {
             onPress={() => {
               setSettings(prevState => ({
                 ...prevState,
-                isVaccinate: !prevState.isVaccinate,
+                isVaccinated: !prevState.isVaccinated,
               }));
             }}>
             <View style={styles.switcherCircle} />
