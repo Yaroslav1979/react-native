@@ -5,17 +5,18 @@ interface IItems {
   items: {
     text: string;
     icon?: JSX.Element;
+    id: string | boolean;
   }[];
-  active: string;
-  handleSwitch: (text: string) => void;
+  active: string | boolean;
+  handleSwitch: (text: {id: string | boolean}) => void;
 }
 export default function SwitchBtn({items, active, handleSwitch}: IItems) {
   return (
     <View style={styles.switcherWrapper}>
       {items.map(e => (
         <TouchableOpacity
-          onPress={() => handleSwitch(e.text)}
-          style={active === e.text ? styles.activeBtn : styles.nonActiveBtn}>
+          onPress={() => handleSwitch(e)}
+          style={active === e.id ? styles.activeBtn : styles.nonActiveBtn}>
           {!!e.icon && <View style={styles.iconContainer}>{e.icon}</View>}
           <View style={[styles.textContainer, !!e.icon && {flex: 0.8}]}>
             <Text style={styles.btnText}>{e.text}</Text>

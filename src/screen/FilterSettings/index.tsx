@@ -13,47 +13,60 @@ import {FemailIcon, MailAndFemailIcon, SearchIcon} from '../../assets/icons';
 import SwitchBtn from './components/SwitchBtn';
 import MailIcon from '../../assets/icons/Mail';
 import DefaultButton from '../../common/components/DefaultButton';
-import SearchInput from './components/SearchInput';
+import {useNavigation} from '@react-navigation/core';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {TabBarStackType} from '../../navigation/types';
+import {ScreenNames} from '../../constants/screenNames';
 
+export interface ISettings {
+  sortByTime: boolean;
+  selectedAnimal: boolean;
+  selectedSex: 'male' | 'female';
+  size: 'big' | 'small' | 'medium';
+  age: string;
+  isVaccinate: boolean;
+}
 export default function FilterSettings() {
-  const [settings, setSettings] = useState({
+  const navigation = useNavigation<StackNavigationProp<TabBarStackType>>();
+  const [settings, setSettings] = useState<ISettings>({
     sortByTime: false,
-    sortByType: false,
-    type: '',
-    color: '',
-    selectedAnimal: 'Собаки',
-    selectedSex: 'Хлопець',
-    size: 'Великі',
-    age: 1,
+    selectedAnimal: true,
+    selectedSex: 'male',
+    size: 'small',
+    age: '1',
     isVaccinate: false,
   });
-  const handleSwitchAnimal = (animal: string) => {
+  const handleSwitchAnimal = (animal: {id: boolean}) => {
     setSettings(prevState => ({
       ...prevState,
-      selectedAnimal: animal,
+      selectedAnimal: animal.id,
     }));
   };
-  const handleSwitchSex = (sex: string) => {
+  const handleSwitchSex = (animal: {id: 'male' | 'female'}) => {
     setSettings(prevState => ({
       ...prevState,
-      selectedSex: sex,
+      selectedSex: animal.id,
     }));
   };
-  const handleSwitchSize = (size: string) => {
+  const handleSwitchSize = (animal: {id: 'small' | 'big' | 'medium'}) => {
     setSettings(prevState => ({
       ...prevState,
-      size: size,
+      size: animal.id,
     }));
   };
+  const onSortByTime = () => {
+    setSettings(prevState => ({
+      ...prevState,
+      sortByTime: !prevState.sortByTime,
+    }));
+  };
+
   return (
     <ScrollView style={{margin: 10, gap: 20}}>
       <View style={{gap: 20}}>
         <TouchableOpacity
           onPress={() => {
-            setSettings(prevState => ({
-              ...prevState,
-              sortByTime: !prevState.sortByTime,
-            }));
+            onSortByTime();
           }}
           style={styles.sortByTimeBtn}>
           <View style={styles.activeSortByTime}>
@@ -66,21 +79,28 @@ export default function FilterSettings() {
         <SwitchBtn
           handleSwitch={handleSwitchAnimal}
           active={settings.selectedAnimal}
-          items={[{text: 'Собаки'}, {text: 'Коти'}]}
+          items={[
+            {text: 'Собаки', id: true},
+            {text: 'Коти', id: false},
+          ]}
         />
         <SwitchBtn
           handleSwitch={handleSwitchSex}
           active={settings.selectedSex}
           items={[
-            {text: 'Хлопець', icon: <MailIcon />},
-            {text: 'Дівчина', icon: <FemailIcon />},
-            {text: 'Будь-хто', icon: <MailAndFemailIcon />},
+            {text: 'Хлопець', icon: <MailIcon />, id: 'male'},
+            {text: 'Дівчина', icon: <FemailIcon />, id: 'female'},
+            {text: 'Будь-хто', icon: <MailAndFemailIcon />, id: 'all'},
           ]}
         />
         <SwitchBtn
           handleSwitch={handleSwitchSize}
           active={settings.size}
-          items={[{text: 'Маленькі'}, {text: 'Середні'}, {text: 'Великі'}]}
+          items={[
+            {text: 'Маленькі', id: 'small'},
+            {text: 'Середні', id: 'medium'},
+            {text: 'Великі', id: 'big'},
+          ]}
         />
         <View style={{gap: 5}}>
           <Text style={styles.btnText}>Вік,роки</Text>
@@ -90,49 +110,18 @@ export default function FilterSettings() {
             </View>
             <TextInput
               placeholder={'1'}
+              keyboardType={'numeric'}
               value={settings.age.toString()}
               onChangeText={text =>
                 setSettings(prevState => ({
                   ...prevState,
-                  age: +text,
+                  age: text,
                 }))
               }
             />
           </View>
         </View>
-        <SearchInput
-          onSearch={text =>
-            setSettings(prevState => ({
-              ...prevState,
-              type: text,
-            }))
-          }
-          title={'Порода'}
-          value={settings.type}
-        />
-        <TouchableOpacity
-          onPress={() => {
-            setSettings(prevState => ({
-              ...prevState,
-              sortByType: !prevState.sortByTime,
-            }));
-          }}
-          style={styles.sortByTimeBtn}>
-          <View style={styles.activeSortByType}>
-            {settings.sortByType && <View style={styles.checkedSortByType} />}
-          </View>
-          <Text style={styles.sortByTimeText}>Без породи</Text>
-        </TouchableOpacity>
-        <SearchInput
-          title={'Колір'}
-          onSearch={text =>
-            setSettings(prevState => ({
-              ...prevState,
-              color: text,
-            }))
-          }
-          value={settings.color}
-        />
+
         <View style={styles.switcherContainer}>
           <Text style={styles.btnText}>Вакцінація</Text>
           <TouchableOpacity
@@ -152,7 +141,12 @@ export default function FilterSettings() {
             <View style={styles.switcherCircle} />
           </TouchableOpacity>
         </View>
-        <DefaultButton onPress={() => {}} text={'Показати варіанти'} />
+        <DefaultButton
+          onPress={() => {
+            navigation.navigate(ScreenNames.HOME_PAGE, {settings: settings});
+          }}
+          text={'Показати варіанти'}
+        />
       </View>
     </ScrollView>
   );

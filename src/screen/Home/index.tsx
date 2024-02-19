@@ -15,9 +15,12 @@ export interface IPets {
   name: string;
   sex: string;
   type: string;
+  timeStamp: number;
+  size: 'big' | 'medium' | 'small';
 }
 export default function Home() {
   const [pets, setPets] = useState<IPets[]>([]);
+
   const getPets = async () => {
     try {
       const result = await firestore().collection('animals').get();
@@ -44,9 +47,10 @@ export default function Home() {
   useEffect(() => {
     getPets();
   }, []);
+  console.log('pets', pets);
   return (
     <View style={{flex: 1}}>
-      <SearchBar handleSearch={handleSearch} />
+      <SearchBar handleSearch={handleSearch} pets={pets} />
       <PetsList pets={pets} />
     </View>
   );

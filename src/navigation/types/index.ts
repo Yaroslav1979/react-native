@@ -1,3 +1,5 @@
+import {IPets} from '../../screen/Home';
+
 export type LoggedOutStackType = {
   LOGIN_PAGE: undefined;
   REGISTRATION_PAGE: undefined;
@@ -7,10 +9,21 @@ export type DrawerStackType = {
 };
 export type LoggedInStackType = {
   DRAWER_STACK: undefined;
-  FILTERS_SETTINGS_PAGE: undefined;
+  FILTERS_SETTINGS_PAGE: {
+    petsList: IPets[];
+  };
 };
 export type TabBarStackType = {
-  HOME_PAGE: undefined;
+  HOME_PAGE: {
+    settings: {
+      sortByTime: boolean;
+      selectedAnimal: boolean;
+      selectedSex: 'male' | 'female';
+      size: 'big' | 'small' | 'medium';
+      age: string;
+      isVaccinate: boolean;
+    };
+  };
   FAVORITE_PAGE: undefined;
 };
 

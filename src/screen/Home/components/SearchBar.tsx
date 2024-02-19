@@ -11,11 +11,13 @@ import {useNavigation} from '@react-navigation/native';
 import {ScreenNames} from '../../../constants/screenNames';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {LoggedInStackType} from '../../../navigation/types';
+import {IPets} from '../index';
 
 interface ISearchBar {
   handleSearch: (text: string) => void;
+  pets: IPets[];
 }
-export default function SearchBar({handleSearch}: ISearchBar) {
+export default function SearchBar({handleSearch, pets}: ISearchBar) {
   const [name, setName] = useState('');
   const navigation = useNavigation<StackNavigationProp<LoggedInStackType>>();
   useEffect(() => {
@@ -25,7 +27,7 @@ export default function SearchBar({handleSearch}: ISearchBar) {
     return () => clearTimeout(timeout);
   }, [name]);
   const handleNavigateToSettings = () => {
-    navigation.navigate(ScreenNames.FILTERS_SETTINGS_PAGE);
+    navigation.navigate(ScreenNames.FILTERS_SETTINGS_PAGE, {petsList: pets});
   };
   return (
     <View style={styles.mainWrapper}>
