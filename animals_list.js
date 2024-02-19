@@ -1,4 +1,4 @@
-export const animals = [
+export const animals = export const animals = [
   {
     location: 'Kharkiv',
     isDog: true,
@@ -16,6 +16,7 @@ export const animals = [
     ],
     name: 'Max',
     size: 'medium',
+    timeStamp: 1091633462424,
   },
   {
     location: 'Dnipro',
@@ -33,6 +34,7 @@ export const animals = [
     ],
     name: 'Bella',
     size: 'big',
+    timeStamp: 1623150570788,
   },
   {
     location: 'Lviv',
@@ -50,6 +52,7 @@ export const animals = [
     ],
     name: 'Charlie',
     size: 'small',
+    timeStamp: 1447097824272,
   },
   {
     location: 'Kharkiv',
@@ -67,6 +70,7 @@ export const animals = [
     ],
     name: 'Luna',
     size: 'medium',
+    timeStamp: 1340604029413,
   },
   {
     location: 'Dnipro',
@@ -85,6 +89,7 @@ export const animals = [
     ],
     name: 'Cooper',
     size: 'big',
+    timeStamp: 1587023116695,
   },
   {
     location: 'Kharkiv',
@@ -103,6 +108,7 @@ export const animals = [
     ],
     name: 'Lucy',
     size: 'small',
+    timeStamp: 1006898640756,
   },
   {
     location: 'Lviv',
@@ -121,6 +127,7 @@ export const animals = [
     ],
     name: 'Buddy',
     size: 'medium',
+    timeStamp: 1266585971482,
   },
   {
     location: 'Kharkiv',
@@ -139,6 +146,7 @@ export const animals = [
     ],
     name: 'Daisy',
     size: 'big',
+    timeStamp: 1085972560458,
   },
   {
     location: 'Lviv',
@@ -157,6 +165,7 @@ export const animals = [
     ],
     name: 'Rocky',
     size: 'small',
+    timeStamp: 979932177283,
   },
   {
     location: 'Kiev',
@@ -175,6 +184,7 @@ export const animals = [
     ],
     name: 'Molly',
     size: 'medium',
+    timeStamp: 1639415835887,
   },
   {
     location: 'Dnipro',
@@ -193,6 +203,7 @@ export const animals = [
     ],
     name: 'Bear',
     size: 'big',
+    timeStamp: 1254197197682,
   },
   {
     location: 'Kharkiv',
@@ -211,6 +222,7 @@ export const animals = [
     ],
     name: 'Sadie',
     size: 'small',
+    timeStamp: 1149973787671,
   },
   {
     location: 'Dnipro',
@@ -229,6 +241,7 @@ export const animals = [
     ],
     name: 'Tucker',
     size: 'medium',
+    timeStamp: 1095103034508,
   },
   {
     location: 'Dnipro',
@@ -247,6 +260,7 @@ export const animals = [
     ],
     name: 'Maggie',
     size: 'big',
+    timeStamp: 1362892902276,
   },
   {
     location: 'Lviv',
@@ -268,6 +282,7 @@ export const animals = [
     ],
     name: 'Oliver',
     size: 'small',
+    timeStamp: 1617076183670,
   },
   {
     location: 'Kiev',
@@ -286,6 +301,7 @@ export const animals = [
     ],
     name: 'Sophie',
     size: 'medium',
+    timeStamp: 1526581070916,
   },
   {
     location: 'Dnipro',
@@ -304,6 +320,7 @@ export const animals = [
     ],
     name: 'Duke',
     size: 'big',
+    timeStamp: 1528729538871,
   },
   {
     location: 'Lviv',
@@ -322,6 +339,7 @@ export const animals = [
     ],
     name: 'Chloe',
     size: 'small',
+    timeStamp: 1040507285672,
   },
   {
     location: 'Lviv',
@@ -340,6 +358,7 @@ export const animals = [
     ],
     name: 'Riley',
     size: 'medium',
+    timeStamp: 1382653805511,
   },
   {
     location: 'Dnipro',
@@ -358,6 +377,7 @@ export const animals = [
     ],
     name: 'Bailey',
     size: 'big',
+    timeStamp: 998858923965,
   },
   {
     location: 'Dnipro',
@@ -376,6 +396,7 @@ export const animals = [
     ],
     name: 'Toby',
     size: 'small',
+    timeStamp: 1103712684480,
   },
   {
     location: 'Lviv',
@@ -394,6 +415,7 @@ export const animals = [
     ],
     name: 'Lola',
     size: 'medium',
+    timeStamp: 1045827005365,
   },
   {
     location: 'Lviv',
@@ -412,6 +434,7 @@ export const animals = [
     ],
     name: 'Jack',
     size: 'big',
+    timeStamp: 1351913827415,
   },
   {
     location: 'Lviv',
@@ -430,6 +453,7 @@ export const animals = [
     ],
     name: 'Stella',
     size: 'small',
+    timeStamp: 1214870157048,
   },
   {
     location: 'Kiev',
@@ -448,6 +472,7 @@ export const animals = [
     ],
     name: 'Finn',
     size: 'medium',
+    timeStamp: 996342941402,
   },
   {
     location: 'Kiev',
@@ -466,6 +491,7 @@ export const animals = [
     ],
     name: 'Zoe',
     size: 'big',
+    timeStamp: 1463229110798,
   },
   {
     location: 'Dnipro',
@@ -484,6 +510,7 @@ export const animals = [
     ],
     name: 'Murphy',
     size: 'small',
+    timeStamp: 1437876586117,
   },
   {
     location: 'Kiev',
@@ -503,6 +530,7 @@ export const animals = [
     ],
     name: 'Lily',
     size: 'medium',
+    timeStamp: 978885710190,
   },
   {
     location: 'Lviv',
@@ -522,6 +550,7 @@ export const animals = [
     ],
     name: 'Leo',
     size: 'big',
+    timeStamp: 1111569826843,
   },
   {
     location: 'Lviv',
@@ -540,6 +569,7 @@ export const animals = [
     ],
     name: 'Ellie',
     size: 'small',
+    timeStamp: 1170588127923,
   },
   {
     location: 'Dnipro',
@@ -558,6 +588,7 @@ export const animals = [
     ],
     name: 'Gus',
     size: 'medium',
+    timeStamp: 1444331079659,
   },
   {
     location: 'Lviv',
@@ -576,6 +607,7 @@ export const animals = [
     ],
     name: 'Nala',
     size: 'big',
+    timeStamp: 1426748021066,
   },
   {
     location: 'Kiev',
@@ -594,6 +626,7 @@ export const animals = [
     ],
     name: 'Hank',
     size: 'small',
+    timeStamp: 1020390212742,
   },
   {
     location: 'Kharkiv',
@@ -612,6 +645,7 @@ export const animals = [
     ],
     name: 'Penny',
     size: 'medium',
+    timeStamp: 978281425328,
   },
   {
     location: 'Dnipro',
@@ -630,6 +664,7 @@ export const animals = [
     ],
     name: 'Milo',
     size: 'big',
+    timeStamp: 1472377560737,
   },
   {
     location: 'Kiev',
@@ -648,6 +683,7 @@ export const animals = [
     ],
     name: 'Ruby',
     size: 'small',
+    timeStamp: 1512219950396,
   },
   {
     location: 'Lviv',
@@ -666,6 +702,7 @@ export const animals = [
     ],
     name: 'Zeus',
     size: 'medium',
+    timeStamp: 1225158898993,
   },
   {
     location: 'Lviv',
@@ -684,6 +721,7 @@ export const animals = [
     ],
     name: 'Rosie',
     size: 'big',
+    timeStamp: 1496977003846,
   },
   {
     location: 'Dnipro',
@@ -702,6 +740,7 @@ export const animals = [
     ],
     name: 'Louie',
     size: 'small',
+    timeStamp: 1311166858536,
   },
   {
     location: 'Kiev',
@@ -720,6 +759,7 @@ export const animals = [
     ],
     name: 'Mia',
     size: 'medium',
+    timeStamp: 1072886074778,
   },
   {
     location: 'Kiev',
@@ -738,6 +778,7 @@ export const animals = [
     ],
     name: 'Jasper',
     size: 'big',
+    timeStamp: 1252422806967,
   },
   {
     location: 'Dnipro',
@@ -756,6 +797,7 @@ export const animals = [
     ],
     name: 'Roxy',
     size: 'small',
+    timeStamp: 1355427065628,
   },
   {
     location: 'Lviv',
@@ -774,6 +816,7 @@ export const animals = [
     ],
     name: 'Oscar',
     size: 'medium',
+    timeStamp: 1610272991399,
   },
   {
     location: 'Kharkiv',
@@ -792,6 +835,7 @@ export const animals = [
     ],
     name: 'Gracie',
     size: 'big',
+    timeStamp: 1132883501916,
   },
   {
     location: 'Lviv',
@@ -810,6 +854,7 @@ export const animals = [
     ],
     name: 'Winston',
     size: 'small',
+    timeStamp: 1585338028863,
   },
   {
     location: 'Lviv',
@@ -828,6 +873,7 @@ export const animals = [
     ],
     name: 'Coco',
     size: 'medium',
+    timeStamp: 1272079292805,
   },
   {
     location: 'Lviv',
@@ -846,6 +892,7 @@ export const animals = [
     ],
     name: 'Sammy',
     size: 'big',
+    timeStamp: 1031863693587,
   },
   {
     location: 'Kiev',
@@ -864,6 +911,7 @@ export const animals = [
     ],
     name: 'Lulu',
     size: 'small',
+    timeStamp: 1261063985387,
   },
   {
     location: 'Lviv',
@@ -884,6 +932,7 @@ export const animals = [
     ],
     name: 'Teddy',
     size: 'medium',
+    timeStamp: 1031268403832,
   },
   {
     location: 'Kharkiv',
@@ -901,5 +950,7 @@ export const animals = [
     ],
     name: 'Piper',
     size: 'big',
+    timeStamp: 1048759881924,
   },
 ];
+
