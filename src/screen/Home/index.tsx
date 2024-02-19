@@ -2,6 +2,7 @@ import {View} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import {useEffect, useState} from 'react';
 import PetsList from './components/PetsList';
+import SearchBar from './components/SearchBar';
 
 export interface IPets {
   age: number;
@@ -26,11 +27,26 @@ export default function Home() {
       console.log('e', e);
     }
   };
+  const handleSearch = async (text: string) => {
+    try {
+      const result = await firestore()
+        .collection('animals')
+        .orderBy('name')
+        .startAt(text)
+        .endAt(text + '\uf8ff')
+        .get();
+      const temp: IPets[] = result.docs.map(e => e.data()) as IPets[];
+      setPets(temp);
+    } catch (e) {
+      console.log('e', e);
+    }
+  };
   useEffect(() => {
     getPets();
   }, []);
   return (
     <View style={{flex: 1}}>
+      <SearchBar handleSearch={handleSearch} />
       <PetsList pets={pets} />
     </View>
   );
