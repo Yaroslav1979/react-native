@@ -14,7 +14,9 @@ import MailAndFemailIcon from './MailAndFemailIcon';
 import LongArrowIcon from './LongArrorIcon';
 import PlaceIcon from './PlaceIcon';
 
+const DogImage = require('../icons/png/dogIcon.png');
 export {
+  DogImage,
   MailAndFemailIcon,
   LongArrowIcon,
   Mail,
