@@ -7,7 +7,7 @@ import 'react-native-gesture-handler';
 
 function App(): React.JSX.Element {
   // const db = firebase.firestore();
-  //
+
   // const uploadAnimalsToFirestore = async animals => {
   //   const collectionRef = db.collection('animals');
   //

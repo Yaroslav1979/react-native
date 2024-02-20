@@ -10,16 +10,55 @@ import {
 import {IPets} from '../index';
 import {fonts} from '../../../constants/fonts';
 import {FavoriteIcon} from '../../../assets/icons';
-import {useNavigation} from '@react-navigation/core';
+import {useFocusEffect, useNavigation} from '@react-navigation/core';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {LoggedInStackType} from '../../../navigation/types';
 import {ScreenNames} from '../../../constants/screenNames';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useCallback, useState} from 'react';
 
+export const handleAddToFavorite = async (pet: IPets) => {
+  try {
+    const favorites = await AsyncStorage.getItem('favorites');
+    if (favorites) {
+      const result = JSON.parse(favorites);
+      if (result.find(e => e.timeStamp === pet.timeStamp)) {
+        const filtertResult = result.filter(e => e.timeStamp !== pet.timeStamp);
+        await AsyncStorage.setItem('favorites', JSON.stringify(filtertResult));
+        return;
+      }
+      await AsyncStorage.setItem('favorites', JSON.stringify([...result, pet]));
+    } else {
+      await AsyncStorage.setItem('favorites', JSON.stringify([pet]));
+    }
+  } catch (e) {
+    console.log('e', e);
+  }
+};
 export default function PetsList({pets}: {pets: IPets[]}) {
   const navigation = useNavigation<StackNavigationProp<LoggedInStackType>>();
+
+  const [favorites, setFavorites] = useState<IPets[]>([]);
   const handleGoToPet = (item: IPets) => {
     navigation.navigate(ScreenNames.PET_PAGE, {pet: item});
   };
+
+  const getFavorite = async () => {
+    try {
+      const favorites = await AsyncStorage.getItem('favorites');
+      if (favorites) {
+        const result = JSON.parse(favorites);
+        setFavorites(result);
+      }
+    } catch (e) {
+      console.log('e', e);
+    }
+  };
+  useFocusEffect(
+    useCallback(() => {
+      void getFavorite();
+    }, []),
+  );
   return (
     <View style={styles.flex}>
       <FlatList
@@ -36,8 +75,18 @@ export default function PetsList({pets}: {pets: IPets[]}) {
                 imageStyle={{borderRadius: 20}}
                 style={styles.image}
                 resizeMode={'cover'}>
-                <TouchableOpacity style={styles.favoriteBtn}>
-                  <FavoriteIcon />
+                <TouchableOpacity
+                  style={styles.favoriteBtn}
+                  onPress={() => {
+                    handleAddToFavorite(item).then(() => {
+                      void getFavorite();
+                    });
+                  }}>
+                  <FavoriteIcon
+                    isFavorite={
+                      !!favorites.find(e => e.timeStamp === item.timeStamp)
+                    }
+                  />
                 </TouchableOpacity>
                 <View style={styles.textContainer}>
                   <Text style={styles.text}>{item.type}</Text>
