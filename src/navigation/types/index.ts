@@ -10,6 +10,9 @@ export type DrawerStackType = {
 };
 export type LoggedInStackType = {
   DRAWER_STACK: undefined;
+  PET_PAGE: {
+    pet: IPets;
+  };
   FILTERS_SETTINGS_PAGE: {
     petsList: IPets[];
   };

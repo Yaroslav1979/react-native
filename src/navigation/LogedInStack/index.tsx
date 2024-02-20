@@ -4,6 +4,7 @@ import {LoggedInStackType} from '../types';
 import DrawerStack from '../DrawerStack';
 import FilterSettings from '../../screen/FilterSettings';
 import SettingsHeader from '../../common/components/SettingsHeader';
+import PetPage from '../../screen/PetPage';
 
 const Stack = createNativeStackNavigator<LoggedInStackType>();
 
@@ -22,6 +23,13 @@ export default function LoggedInStack() {
         }}
         name={ScreenNames.FILTERS_SETTINGS_PAGE}
         component={FilterSettings}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name={ScreenNames.PET_PAGE}
+        component={PetPage}
       />
     </Stack.Navigator>
   );

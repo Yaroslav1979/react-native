@@ -11,9 +11,12 @@ import SettingsIcon from './SettingsIcon';
 import Mail from './Mail';
 import FemailIcon from './FemailIcon';
 import MailAndFemailIcon from './MailAndFemailIcon';
+import LongArrowIcon from './LongArrorIcon';
+import PlaceIcon from './PlaceIcon';
 
 export {
   MailAndFemailIcon,
+  LongArrowIcon,
   Mail,
   FemailIcon,
   SettingsIcon,
@@ -26,4 +29,5 @@ export {
   ArrowIcon,
   FavoriteIcon,
   SearchIcon,
+  PlaceIcon,
 };
