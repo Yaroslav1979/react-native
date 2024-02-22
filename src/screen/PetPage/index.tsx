@@ -81,7 +81,6 @@ export default function PetPage() {
   };
   useEffect(() => {
     getFavorite();
-    throw new Error('Error');
   }, []);
   return (
     <ScrollView style={{flex: 1}}>
