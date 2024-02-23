@@ -26,6 +26,7 @@ import Modal from 'react-native-modal';
 import Input from '../../common/components/Input';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {handleAddToFavorite} from '../Home/components/PetsList';
+import {useTranslation} from 'react-i18next';
 
 interface IFormInfo {
   name: string;
@@ -37,7 +38,7 @@ export default function PetPage() {
   const route = useRoute<RouteProp<{params: {pet: IPets}}>>();
   const navigation = useNavigation<StackNavigationProp<LoggedInStackType>>();
   const [favorites, setFavorites] = useState<IPets[]>([]);
-
+  const {t} = useTranslation('main');
   const [sliderIndex, setSliderIndex] = useState<number>(0);
   const [formInfo, setFormInfo] = useState<IFormInfo>({
     name: '',
@@ -151,12 +152,12 @@ export default function PetPage() {
           </View>
           <View style={{gap: 10, marginHorizontal: 10}}>
             <Text style={[styles.titleText, {fontSize: 18}]}>
-              Характеристики:
+              {t('character')}
             </Text>
             <View style={styles.characterContainer}>
               <View style={styles.characterWrapper}>
                 <Text style={styles.characterText}>
-                  {route?.params?.pet.age} років
+                  {route?.params?.pet.age} {t('years')}
                 </Text>
               </View>
               <View style={styles.characterWrapper}>
@@ -177,14 +178,16 @@ export default function PetPage() {
               <View style={styles.characterWrapper}>
                 <Text style={styles.characterText}>
                   {route?.params?.pet.isVaccinated
-                    ? 'Вакцінований'
-                    : 'Не вакцинований'}
+                    ? t('vaccinated')
+                    : t('noVaccinated')}
                 </Text>
               </View>
             </View>
           </View>
           <View style={{margin: 10, gap: 10}}>
-            <Text style={[styles.titleText, {fontSize: 18}]}>Моя історія:</Text>
+            <Text style={[styles.titleText, {fontSize: 18}]}>
+              {t('myHistory')}
+            </Text>
             <View>
               <Text style={styles.characterText}>
                 {route?.params?.pet.description}
@@ -198,7 +201,7 @@ export default function PetPage() {
                 isVisible: true,
               }));
             }}
-            text={"Подарувати сім'ю"}
+            text={t('giveFamily')}
           />
         </View>
       </View>
@@ -219,10 +222,10 @@ export default function PetPage() {
           <View style={{flexDirection: 'row'}}>
             <View style={{gap: 10}}>
               <Text style={{fontFamily: fonts.ComfortaaRegular, fontSize: 24}}>
-                Забрати хвостика додому
+                {t('takeHome')}
               </Text>
               <Text style={{fontFamily: fonts.MontserratRegular}}>
-                Залиш свої дані і ми з тобою зв’яжемося
+                {t('leaveInformation')}
               </Text>
             </View>
             <TouchableOpacity
@@ -239,7 +242,7 @@ export default function PetPage() {
             <Text>Ім'я</Text>
             <Input
               value={formInfo.name}
-              placeholder={"Введи своє ім'я"}
+              placeholder={t('enterName')}
               onChangeText={text => {
                 handleEditForm('name', text);
               }}
@@ -268,7 +271,7 @@ export default function PetPage() {
           <View>
             <Text>Коментар</Text>
             <Input
-              placeholder={'Залиш коментар'}
+              placeholder={t('leaveComment')}
               value={formInfo.comment}
               onChangeText={text => {
                 handleEditForm('comment', text);
@@ -285,7 +288,7 @@ export default function PetPage() {
                 isVisible: false,
               });
             }}
-            text={'Забрати хвостика додому'}
+            text={t('takeHome')}
           />
         </View>
       </Modal>
@@ -305,11 +308,10 @@ export default function PetPage() {
           </View>
           <View style={{gap: 10, alignItems: 'center'}}>
             <Text style={{fontFamily: fonts.ComfortaaRegular, fontSize: 24}}>
-              Дякуємо за заявку!
+              {t('thankForApplication')}
             </Text>
             <Text style={{fontFamily: fonts.MontserratRegular}}>
-              Вітаємо! Ти на крок ближче до того щоб завести собі пухнастого
-              друга. Ми скоро зв’яжемося з тобою.
+              {t('congratulation')}
             </Text>
           </View>
           <DefaultButton

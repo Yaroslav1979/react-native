@@ -13,10 +13,12 @@ import FemailIcon from './FemailIcon';
 import MailAndFemailIcon from './MailAndFemailIcon';
 import LongArrowIcon from './LongArrorIcon';
 import PlaceIcon from './PlaceIcon';
+import CheckIcon from './CheckIcon';
 
 const DogImage = require('../icons/png/dogIcon.png');
 export {
   DogImage,
+  CheckIcon,
   MailAndFemailIcon,
   LongArrowIcon,
   Mail,

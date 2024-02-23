@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/core';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {LoggedInStackType} from '../../../navigation/types';
 
-export default function SettingsHeader() {
+export default function SettingsHeader({title = 'Фільтри'}) {
   const navigation = useNavigation<StackNavigationProp<LoggedInStackType>>();
   return (
     <View style={styles.mainWrapper}>
@@ -14,7 +14,7 @@ export default function SettingsHeader() {
         style={styles.backBtn}>
         <ArrowIcon width={20} height={20} />
       </TouchableOpacity>
-      <Text style={styles.title}>Фільтри</Text>
+      <Text style={styles.title}>{title}</Text>
     </View>
   );
 }
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     transform: [{rotate: '180deg'}],
   },
   title: {
-    flex: 0.62,
+    flex: 0.7,
     fontFamily: fonts.MontserratSemiBold,
     color: 'black',
   },

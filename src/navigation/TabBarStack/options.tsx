@@ -3,13 +3,14 @@ import {HeartIcon, PawIcon} from '../../assets/icons';
 import {ScreenNames} from '../../constants/screenNames';
 import {fonts} from '../../constants/fonts';
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
+import i18n from '../../../i18.config';
 
 const getName = (name: string) => {
   switch (name) {
     case ScreenNames.FAVORITE_PAGE:
-      return 'Улюблюені';
+      return i18n.t('favorite');
     case ScreenNames.HOME_PAGE:
-      return 'Пухнастики';
+      return i18n.t('fluffies');
   }
 };
 const getIcon = (name: string, focused: boolean) => {

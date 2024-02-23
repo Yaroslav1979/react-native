@@ -3,6 +3,7 @@ import {DevSettings, NativeModules, SafeAreaView} from 'react-native';
 import RootNavigation from './src/navigation';
 import 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
+import './i18.config';
 // import {firebase} from '@react-native-firebase/firestore';
 // import {animals} from './animals_list.js';
 

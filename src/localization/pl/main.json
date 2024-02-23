@@ -1,0 +1,24 @@
+{
+  "welcomeTitle": "Miło Cię widzieć!",
+  "subTitle": "Każdy puszysty przyjaciel zasługuje na troskliwych właścicieli.\n Pomożemy Ci znaleźć przyjaciela.",
+  "logIn": "Login",
+  "registration": "Rejestracja",
+  "register": "Zarejestrować się",
+  "character": "Cechy",
+  "years": "lat",
+  "vaccinated": "Zaszczepiony",
+  "noVaccinated": "Niezaszczepiony",
+  "myHistory": "Moja historia:",
+  "giveFamily":"Podarować rodzinę",
+  "takeHome": "Zabrać ogonek do domu",
+  "leaveInformation": "Zostaw swoje dane, a my się z Tobą skontaktujemy",
+  "enterName": "Wprowadź swoje imię",
+  "leaveComment":"Zostaw komentarz",
+  "thankForApplication": "Dziękujemy za zgłoszenie!",
+  "congratulation": "Gratulacje! Jesteś o krok bliżej, aby mieć puchatego przyjaciela. Wkrótce się z Tobą skontaktujemy.",
+  "okay": "ok",
+  "favorite": "Ulubione",
+  "fluffies": "Puszyste"
+
+
+}
